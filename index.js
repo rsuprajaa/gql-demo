@@ -9,9 +9,10 @@ connectDB()
 
 const server = new ApolloServer({
       typeDefs,
-      resolvers
+      resolvers,
+      context: ({ req, res }) => ({ res, req })
 })
 
-server.listen({ port: 5000 }).then((res)=> {
+server.listen({ port: 5001 }).then((res)=> {
       console.log(`Server running at ${res.url}`)
 })
